@@ -2,9 +2,8 @@
 Create Components that Shimmeling Effect
 
 **Install Package**
-    yarn add shimmelingcomponent
 
-  
+      yarn add shimmelingcomponent
 
 
 This Package using react-native-linear-gradient
