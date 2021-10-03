@@ -5,14 +5,14 @@ import Shimmering from './Shimmering';
 export class App extends Component {
 	render() {
 		return (
-			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+			<View style={{ backgroundColor:'#0097ff',flex: 1, justifyContent: 'space-evenly', alignItems: 'center' }}>
 				<Shimmering
 					wrapperStyle={{
-						width: 250,
-						height: 250,
-						borderRadius: 500
+						width: 150,
+						height: 50,
+						borderRadius: 500,
 					}}
-				
+          duration={250}
 				/>
 
 				<Shimmering
@@ -22,6 +22,7 @@ export class App extends Component {
 						borderRadius: 50,
 						marginTop: 25
 					}}
+          duration={500}
 				/>
 			</View>
 		);

@@ -15,6 +15,7 @@ interface IProps {
   colors?: Array<string>;
   gradientStyle?: StyleProp<ViewStyle>;
   wrapperStyle?: StyleProp<ViewStyle> & {width: number; height: number};
+  duration?:number;
 }
 interface IState {
   viewWidth: number;
@@ -22,11 +23,11 @@ interface IState {
 
 const GREY = 'rgb(234, 234, 234)';
 const shimmeringAnimatedValue = new Animated.Value(0);
-const ShimmringAnimation = Animated.loop(
+const ShimmringAnimation =(duration:number)=> Animated.loop(
   Animated.timing(shimmeringAnimatedValue, {
     useNativeDriver: false,
     delay: 1200,
-    duration: 2000,
+    duration: duration,
     toValue: 1,
   }),
 );
@@ -41,7 +42,7 @@ export default class Shimmering extends PureComponent<IProps, IState> {
       viewWidth: -1,
     };
 
-    this.animation = ShimmringAnimation;
+    this.animation = ShimmringAnimation(this.props?.duration ?? 700);
   }
 
   startAnimation() {
@@ -65,6 +66,7 @@ export default class Shimmering extends PureComponent<IProps, IState> {
           <Animated.View
             style={[
               {
+                  width: this.state.viewWidth*2,
                 flex: 1,
                 left,
               },
